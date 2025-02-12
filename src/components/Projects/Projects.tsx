@@ -1,5 +1,5 @@
+'use client';
 
-'use client'; 
 import React, { useEffect, useState, useRef } from 'react';
 import Card from '@/components/Cards/index';
 import Title from './Title';
@@ -7,7 +7,7 @@ import Sidebar from './Search';
 
 function Projects() {
   const [isSidebarFixed, setIsSidebarFixed] = useState(false);
-  const titleRef = useRef<HTMLDivElement>(null); // Explicitly type the ref
+  const titleRef = useRef<HTMLDivElement>(null); // Ref to track the Title div
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,16 +39,22 @@ function Projects() {
         <Title />
       </div>
 
-      <div className="flex mt-10">
+      <div className="flex flex-col md:flex-row mt-10">
         {/* Sidebar: Conditionally apply fixed positioning */}
         <div
-          className={`${isSidebarFixed ? 'fixed top-0' : 'relative'} w-64`} // Adjust width as needed
+          className={`${
+            isSidebarFixed ? 'fixed top-10' : 'relative'
+          } w-full md:w-64 z-10 bg-white shadow-md md:shadow-none`} // Added background and shadow for better visibility
         >
           <Sidebar />
         </div>
 
         {/* Main content: Adjust margin-left when sidebar is fixed */}
-        <div className={`${isSidebarFixed ? 'ml-64' : ''}`}>
+        <div
+          className={`flex-1 ${
+            isSidebarFixed ? 'md:ml-64' : ''
+          } mt-4 md:mt-0`} // Added margin-top for mobile
+        >
           <Card />
         </div>
       </div>
