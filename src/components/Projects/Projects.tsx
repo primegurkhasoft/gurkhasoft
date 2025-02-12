@@ -42,7 +42,7 @@ function Projects() {
       <div className="flex mt-10">
         {/* Sidebar: Conditionally apply fixed positioning */}
         <div
-          className={`${isSidebarFixed ? 'fixed top-0' : 'relative'} w-64`} // Adjust width as needed
+          className={`${isSidebarFixed ? 'fixed top-10' : 'relative'} w-64`} // Adjust width as needed
         >
           <Sidebar />
         </div>

@@ -1,12 +1,18 @@
-import Projects from '@/components/Projects/Projects'
+import React from 'react';
+
+import Hero from '@/components/Hero/Hero';
+import About from '@/components/About/About';
+import Slider from '@/components/Slider/Slider';
+import Choose from '@/components/Choose/Choose';
+
 
 export default function Home() {
   return (
     <>
-  
-   <Projects/>
-   
-    
+      <Hero/>
+      <Slider/>
+      <About/>
+      <Choose/>
     </>
   );
 }
