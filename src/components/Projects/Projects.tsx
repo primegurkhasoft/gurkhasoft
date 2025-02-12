@@ -42,9 +42,7 @@ function Projects() {
       <div className="flex flex-col md:flex-row mt-10">
         {/* Sidebar: Conditionally apply fixed positioning */}
         <div
-          className={`${
-            isSidebarFixed ? 'fixed top-10' : 'relative'
-          } w-full md:w-64 z-10 bg-white shadow-md md:shadow-none`} // Added background and shadow for better visibility
+          className={`${isSidebarFixed ? 'fixed top-0' : 'relative'} w-64`} // Adjust width as needed
         >
           <Sidebar />
         </div>
