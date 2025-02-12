@@ -1,0 +1,29 @@
+.cards {
+    width: 700px !important;
+    height: 300px !important; 
+    box-shadow: 2px 2px 13px 0px rgba(80, 223, 218, 0.75);
+    -webkit-box-shadow: 2px 2px 13px 0px rgba(35, 201, 213, 0.75);
+    -moz-box-shadow: 2px 2px 13px 0px rgba(134, 252, 238, 0.75);
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .cards {
+        width: 500px !important;
+        height: 250px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .cards {
+        width: 350px !important;
+        height: 200px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards {
+        width: 280px !important;
+        height: 150px !important;
+    }
+}
