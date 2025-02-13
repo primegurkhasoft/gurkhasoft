@@ -1,11 +1,23 @@
-import React from "react";
+'use client';
+
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { motion } from "framer-motion";
-
 import { Card } from "@/types/card"; // Import your Card type
 
 const SingleCard = ({ card }: { card: Card }) => {
-  const { image, badge, logo, title, description } = card;
+  const {id, image, badge, logo, title, description } = card;
+  const [isMounted, setIsMounted] = useState(false); // Track if the component is mounted
+  const router = useRouter();
+
+  useEffect(() => {
+    setIsMounted(true); // Set to true once the component has mounted
+  }, []);
+
+  const handleCardClick = () => {
+    router.push(`/singlepage/${id}`); // Navigate to a new page
+  };
 
   return (
     <motion.div
@@ -14,7 +26,8 @@ const SingleCard = ({ card }: { card: Card }) => {
         boxShadow: "5px 5px 12px -1px rgba(32,28,28,0.75)", // 3D shadow effect
       }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className="max-w-sm rounded-2xl overflow-hidden bg-white shadow-lg p-5 transition-all"
+      className="max-w-md max-h-md lg:h-80 rounded-2xl overflow-hidden bg-white shadow-lg  transition-all cursor-pointer"
+      onClick={()=>handleCardClick()} // Navigate to a new page
     >
       {/* Top Image Section */}
       <div className="relative">
@@ -29,14 +42,15 @@ const SingleCard = ({ card }: { card: Card }) => {
           {badge}
         </span>
       </div>
+      
 
       {/* Card Content */}
-      <div className="mt-4">
-        <div className="flex items-center space-x-2">
-          <Image src={logo} alt={title} width={20} height={20} />
-          <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+      <div className="mt-2">
+        <div className="flex items-center space-x-2 p-1">
+          <Image src={logo} alt={title} width={40} height={40} />
+          <h3 className="text-lg font-semibold text-gray-900 p-2">{title}</h3>
         </div>
-        <p className="mt-2 text-gray-600 text-sm">{description}</p>
+        <p className="m-2 text-gray-600 text-sm p-2">{description}</p>
       </div>
     </motion.div>
   );
