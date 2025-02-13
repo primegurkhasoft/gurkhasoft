@@ -1,6 +1,7 @@
 'use client';
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import React, { useState } from "react";
+import cardData from "@/components/Cards/cardsData"; // Import your card data here
 
 const categories = [
   { title: "All Integrations" },
@@ -41,7 +42,7 @@ const Sidebar = ({ setFilteredCards }: SidebarProps) => {
         type="text"
         placeholder="Search"
         value={searchTerm}
-        onChange={handleSearchChange} // ✅ Now it's used properly
+        onChange={handleSearchChange} // Attach search function here
         className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
 
