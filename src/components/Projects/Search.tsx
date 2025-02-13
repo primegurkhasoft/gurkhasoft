@@ -1,7 +1,6 @@
 'use client';
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import React, { useState } from "react";
-import cardData from "@/components/Cards/cardsData"; // Import your card data here
 
 const categories = [
   { title: "All Integrations" },
