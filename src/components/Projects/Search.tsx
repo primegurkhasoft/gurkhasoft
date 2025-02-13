@@ -2,7 +2,7 @@
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import React, { useState } from "react";
-
+import cardData from "@/components/Cards/cardsData"; // Import your card data here
 
 const categories = [
   { title: "All Integrations" },
@@ -43,13 +43,13 @@ const Sidebar = ({ setFilteredCards }: SidebarProps) => {
   );
 
   return (
-    <div className="w-full sm:w-full md:w-72 lg:w-72 xl:w-72 bg-white dark:bg-gray-900 shadow-lg p-4 h-screen overflow-y-auto lg:ml-24 max-h-fit">
-      <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Search</h2>
+    <div className="w-full sm:w-full md:w-72 lg:w-72 xl:w-72 bg-white shadow-lg p-4 h-screen overflow-y-auto lg:ml-24 max-h-fit">
+      <h2 className="text-lg font-semibold text-gray-900 mb-4">Search</h2>
       <input
         type="text"
         placeholder="Search"
-        value={searchTerm}
-        onChange={handleSearchChange} // Attach search function here
+        value={search}
+        onChange={handleSearch} // Attach search function here
         className="w-full p-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
 
@@ -64,12 +64,12 @@ const Sidebar = ({ setFilteredCards }: SidebarProps) => {
 
       {/* Categories list, visible only on small screens when toggled */}
       <div className={`${isOpen ? 'block' : 'hidden'} lg:block`}>
-        <h3 className="mt-6 text-lg font-bold text-gray-800 dark:text-gray-200">Discover</h3>
+        <h3 className="mt-6 text-lg font-bold text-gray-800 ">Discover</h3>
         <ul className="mt-2 space-y-2">
           {filteredCategories.map((item, index) => (
             <li
               key={index}
-              className="cursor-pointer text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition py-2"
+              className="cursor-pointer text-gray-700 hover:text-blue-500 transition py-2"
             >
               {item.title}
             </li>
