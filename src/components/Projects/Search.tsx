@@ -2,7 +2,6 @@
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import React, { useState } from "react";
-import cardData from "@/components/Cards/cardsData"; // Import your card data here
 
 const categories = [
   { title: "All Integrations" },
@@ -21,25 +20,14 @@ const categories = [
   { title: "Community Built" },
 ];
 
-const Sidebar = () => {
-  const [search, setSearch] = useState("");
+interface SidebarProps {
+  setFilteredCards: (searchTerm: string) => void; // Prop to set filtered cards
+}
+
+const Sidebar = ({ setFilteredCards }: SidebarProps) => {
+  
+  const [searchTerm, setSearchTerm] = useState('');
   const [isOpen, setIsOpen] = useState(false); // State for toggling the dropdown
-
-  // Search function to filter cards based on title or badge
-  const handleSearch = (e) => {
-    const query = e.target.value.toLowerCase();
-    setSearch(query);
-
-    // Filter the cardData based on the query (filter by title or badge)
-    const filtered = cardData.filter(
-      (card) =>
-        card.title.toLowerCase().includes(query) ||
-        card.badge.toLowerCase().includes(query)
-    );
-
-    // Set filtered cards to display in the card section
-    setFilteredCards(filtered);
-  };
 
   // Filter cards based on search query (by title or badge)
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -59,9 +47,9 @@ const Sidebar = () => {
       <input
         type="text"
         placeholder="Search"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        className="w-full p-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        value={searchTerm}
+        onChange={handleSearchChange} // Attach search function here
+        className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
 
       {/* Dropdown Toggle Button for small screens */}
@@ -74,8 +62,8 @@ const Sidebar = () => {
       </button>
 
       {/* Categories list, visible only on small screens when toggled */}
-      <div className={`${isOpen ? 'block' : 'hidden'} lg:block  `}>
-        <h3 className="mt-6 text-lg font-bold text-gray-800 dark:text-gray-200">Discover</h3>
+      <div className={`${isOpen ? 'block' : 'hidden'} lg:block`}>
+        <h3 className="mt-6 text-lg font-bold text-gray-800 ">Discover</h3>
         <ul className="mt-2 space-y-2">
           {filteredCategories.map((item, index) => (
             <li
