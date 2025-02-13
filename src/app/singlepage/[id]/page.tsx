@@ -6,6 +6,7 @@ import Image from "next/image";
 
 import { useRouter } from "next/navigation";
 import cardsData from "@/components/Cards/cardsData"; // Adjust the path based on where cardData.tsx is located
+import { div } from "framer-motion/client";
 
 const SingleCardPage = ({ params }: { params: Promise<{ id: string }> }) => {
     const { id } = use(params); // Unwrap the params to get the id
@@ -24,13 +25,16 @@ const SingleCardPage = ({ params }: { params: Promise<{ id: string }> }) => {
     };
 
     return (
-        <div className="lg:mx-36">
+      <  div     className="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%"  >
+        <div className="lg:mx-36     ">
             <button
                 onClick={handleBackClick}
                 className=" mt-4  text-black rounded-md inline-flex    items-center  lg:my-10 " >
                 <IoIosArrowRoundBack className="mr-2 "  /> Back to Project
             </button>
-
+            <div className="size-18 rounded-full bg-radial from-pink-400 from-40% to-fuchsia-700"></div>
+<div className="size-18 rounded-full bg-radial-[at_50%_75%] from-sky-200 via-blue-400 to-indigo-900 to-90%"></div>
+<div className="size-18 rounded-full bg-radial-[at_25%_25%] from-white to-zinc-900 to-75%"></div>
 
             <div className="mt-4">
                 <div className="flex items-center space-x-2 mt-4 ml-4">
@@ -65,6 +69,7 @@ const SingleCardPage = ({ params }: { params: Promise<{ id: string }> }) => {
 
 
           
+        </div>
         </div>
     );
 };

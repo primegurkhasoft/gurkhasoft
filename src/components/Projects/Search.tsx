@@ -2,7 +2,7 @@
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import React, { useState } from "react";
-import cardData from "@/components/Cards/cardsData"; // Import your card data here
+
 
 const categories = [
   { title: "All Integrations" },
@@ -21,28 +21,25 @@ const categories = [
   { title: "Community Built" },
 ];
 
-const Sidebar = ({ setFilteredCards }) => {
-  const [search, setSearch] = useState("");
+interface SidebarProps {
+  setFilteredCards: (searchTerm: string) => void; // Prop to set filtered cards
+}
+
+const Sidebar = ({ setFilteredCards }: SidebarProps) => {
+  
+  const [searchTerm, setSearchTerm] = useState('');
   const [isOpen, setIsOpen] = useState(false); // State for toggling the dropdown
 
-  // Search function to filter cards based on title or badge
-  const handleSearch = (e) => {
-    const query = e.target.value.toLowerCase();
-    setSearch(query);
+  // Filter cards based on search query (by title or badge)
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.toLowerCase();
+    setSearchTerm(value);
+    setFilteredCards(value);
 
-    // Filter the cardData based on the query (filter by title or badge)
-    const filtered = cardData.filter(
-      (card) =>
-        card.title.toLowerCase().includes(query) ||
-        card.badge.toLowerCase().includes(query)
-    );
-
-    // Set filtered cards to display in the card section
-    setFilteredCards(filtered);
+    // Pass the filtered results to the parent component
   };
-
   const filteredCategories = categories.filter((category) =>
-    category.title.toLowerCase().includes(search.toLowerCase())
+    category.title
   );
 
   return (
@@ -51,8 +48,8 @@ const Sidebar = ({ setFilteredCards }) => {
       <input
         type="text"
         placeholder="Search"
-        value={search}
-        onChange={handleSearch} // Attach search function here
+        value={searchTerm}
+        onChange={handleSearchChange} // Attach search function here
         className="w-full p-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
 
