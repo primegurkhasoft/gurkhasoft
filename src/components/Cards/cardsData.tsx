@@ -1,13 +1,13 @@
-import { Card } from "@/types/card";
+import { Cards } from "@/types/card";
 
-const cardsData: Card[] = [
+const cardsData: Cards[] = [
   {
     id: 1,
     image: "/Images/Projects/salesforce.jpg",
     badge: "New",
     logo: "/Images/Projects/salesforcelogo.png",
    
-    title: "Crafted for SaaS",
+    title: "Ishwor",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
       nodes1:"Salesforce Commerce Cloud is a cloud-based e-commerce platform designed to help businesses create and manage their online stores. It provides a suite of tools and features to support both B2C (business-to-consumer) and B2B (business-to-business) e-commerce operations. Salesforce Commerce Cloud is designed to help businesses deliver engaging and effective shopping experiences, drive sales, and build long-term customer relationships.",
@@ -22,7 +22,7 @@ const cardsData: Card[] = [
   {
     id: 2,
     image: "/Images/Projects/next.svg",
-    badge: "New",
+    badge: "Hello",
     logo: "/Images/Projects/next.svg",
    
     title: "Crafted for SaaS",

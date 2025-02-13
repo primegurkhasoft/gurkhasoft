@@ -20,23 +20,36 @@ const categories = [
   { title: "Community Built" },
 ];
 
-const Sidebar = () => {
-  const [search, setSearch] = useState("");
+interface SidebarProps {
+  setFilteredCards: (searchTerm: string) => void; // Prop to set filtered cards
+}
+
+const Sidebar = ({ setFilteredCards }: SidebarProps) => {
+  
+  const [searchTerm, setSearchTerm] = useState('');
   const [isOpen, setIsOpen] = useState(false); // State for toggling the dropdown
 
+  // Filter cards based on search query (by title or badge)
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.toLowerCase();
+    setSearchTerm(value);
+    setFilteredCards(value);
+
+    // Pass the filtered results to the parent component
+  };
   const filteredCategories = categories.filter((category) =>
-    category.title.toLowerCase().includes(search.toLowerCase())
+    category.title
   );
 
   return (
-    <div className="w-full sm:w-full md:w-72 lg:w-72 xl:w-72 bg-white dark:bg-gray-900 shadow-lg p-4 h-screen overflow-y-auto lg:ml-24 max-h-fit">
-      <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Search</h2>
+    <div className="w-full sm:w-full md:w-72 lg:w-72 xl:w-72 bg-white shadow-lg p-4 h-screen overflow-y-auto lg:ml-24 max-h-fit">
+      <h2 className="text-lg font-semibold text-gray-900 mb-4">Search</h2>
       <input
         type="text"
         placeholder="Search"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        className="w-full p-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        value={searchTerm}
+        onChange={handleSearchChange} // Attach search function here
+        className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
 
       {/* Dropdown Toggle Button for small screens */}
@@ -46,19 +59,16 @@ const Sidebar = () => {
       >
         Categories
         {isOpen ? <IoIosArrowDown className="ml-2" /> : <IoIosArrowForward className="ml-2" />}
-
-
       </button>
 
-
       {/* Categories list, visible only on small screens when toggled */}
-      <div className={`${isOpen ? 'block' : 'hidden'} lg:block  `}>
-        <h3 className="mt-6 text-lg font-bold text-gray-800 dark:text-gray-200">Discover</h3>
+      <div className={`${isOpen ? 'block' : 'hidden'} lg:block`}>
+        <h3 className="mt-6 text-lg font-bold text-gray-800 ">Discover</h3>
         <ul className="mt-2 space-y-2">
           {filteredCategories.map((item, index) => (
             <li
               key={index}
-              className="cursor-pointer text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition py-2"
+              className="cursor-pointer text-gray-700 hover:text-blue-500 transition py-2"
             >
               {item.title}
             </li>
