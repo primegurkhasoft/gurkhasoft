@@ -7,5 +7,7 @@ export type Card = {
    
     title: string;
     description: string;
+    nodes1?:string;
+    nodes2?:string;
   };
   
