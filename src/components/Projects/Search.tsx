@@ -2,6 +2,7 @@
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import React, { useState } from "react";
+import cardData from "@/components/Cards/cardsData"; // Import your card data here
 
 const categories = [
   { title: "All Integrations" },
@@ -20,9 +21,25 @@ const categories = [
   { title: "Community Built" },
 ];
 
-const Sidebar = () => {
+const Sidebar = ({ setFilteredCards }) => {
   const [search, setSearch] = useState("");
   const [isOpen, setIsOpen] = useState(false); // State for toggling the dropdown
+
+  // Search function to filter cards based on title or badge
+  const handleSearch = (e) => {
+    const query = e.target.value.toLowerCase();
+    setSearch(query);
+
+    // Filter the cardData based on the query (filter by title or badge)
+    const filtered = cardData.filter(
+      (card) =>
+        card.title.toLowerCase().includes(query) ||
+        card.badge.toLowerCase().includes(query)
+    );
+
+    // Set filtered cards to display in the card section
+    setFilteredCards(filtered);
+  };
 
   const filteredCategories = categories.filter((category) =>
     category.title.toLowerCase().includes(search.toLowerCase())
@@ -35,7 +52,7 @@ const Sidebar = () => {
         type="text"
         placeholder="Search"
         value={search}
-        onChange={(e) => setSearch(e.target.value)}
+        onChange={handleSearch} // Attach search function here
         className="w-full p-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
 
@@ -46,13 +63,10 @@ const Sidebar = () => {
       >
         Categories
         {isOpen ? <IoIosArrowDown className="ml-2" /> : <IoIosArrowForward className="ml-2" />}
-
-
       </button>
 
-
       {/* Categories list, visible only on small screens when toggled */}
-      <div className={`${isOpen ? 'block' : 'hidden'} lg:block  `}>
+      <div className={`${isOpen ? 'block' : 'hidden'} lg:block`}>
         <h3 className="mt-6 text-lg font-bold text-gray-800 dark:text-gray-200">Discover</h3>
         <ul className="mt-2 space-y-2">
           {filteredCategories.map((item, index) => (
