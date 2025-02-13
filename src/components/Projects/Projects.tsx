@@ -31,9 +31,8 @@ function Projects() {
     const handleScroll = () => {
       if (titleRef.current && cardRef.current && !isMobile) {
         const titleHeight = titleRef.current.offsetHeight;
-        const cardTop = cardRef.current.getBoundingClientRect().top + window.scrollY;
         const cardBottom = cardRef.current.getBoundingClientRect().bottom + window.scrollY;
-
+  
         if (window.scrollY > titleHeight && window.scrollY < cardBottom - window.innerHeight) {
           setIsSidebarFixed(true);
         } else {
@@ -41,9 +40,9 @@ function Projects() {
         }
       }
     };
-
+  
     window.addEventListener('scroll', handleScroll);
-
+  
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };

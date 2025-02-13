@@ -1,6 +1,5 @@
 'use client';
-import { IoIosArrowDown } from "react-icons/io";
-import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import React, { useState } from "react";
 
 const categories = [
@@ -25,7 +24,6 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ setFilteredCards }: SidebarProps) => {
-  
   const [searchTerm, setSearchTerm] = useState('');
   const [isOpen, setIsOpen] = useState(false); // State for toggling the dropdown
 
@@ -33,13 +31,8 @@ const Sidebar = ({ setFilteredCards }: SidebarProps) => {
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.toLowerCase();
     setSearchTerm(value);
-    setFilteredCards(value);
-
-    // Pass the filtered results to the parent component
+    setFilteredCards(value); // ✅ Actually calling the function passed via props
   };
-  const filteredCategories = categories.filter((category) =>
-    category.title
-  );
 
   return (
     <div className="w-full sm:w-full md:w-72 lg:w-72 xl:w-72 bg-white shadow-lg p-4 h-screen overflow-y-auto lg:ml-24 max-h-fit">
@@ -48,7 +41,7 @@ const Sidebar = ({ setFilteredCards }: SidebarProps) => {
         type="text"
         placeholder="Search"
         value={searchTerm}
-        onChange={handleSearchChange} // Attach search function here
+        onChange={handleSearchChange} // ✅ Now it's used properly
         className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
 
@@ -65,7 +58,7 @@ const Sidebar = ({ setFilteredCards }: SidebarProps) => {
       <div className={`${isOpen ? 'block' : 'hidden'} lg:block`}>
         <h3 className="mt-6 text-lg font-bold text-gray-800 ">Discover</h3>
         <ul className="mt-2 space-y-2">
-          {filteredCategories.map((item, index) => (
+          {categories.map((item, index) => (
             <li
               key={index}
               className="cursor-pointer text-gray-700 hover:text-blue-500 transition py-2"
