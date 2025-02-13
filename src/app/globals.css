@@ -19,3 +19,9 @@ body {
   background: #ffffff83;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.shadow{
+  box-shadow: 2px 2px 13px 0px rgba(80, 223, 218, 0.75);
+  -webkit-box-shadow: 2px 2px 13px 0px rgba(35, 201, 213, 0.75);
+  -moz-box-shadow: 2px 2px 13px 0px rgba(134, 252, 238, 0.75);
+}
