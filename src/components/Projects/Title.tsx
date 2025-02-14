@@ -1,8 +1,26 @@
-import React from 'react'
 
+"use client";
+
+import { motion } from "framer-motion";
+import React from "react";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 function Title() {
   return (
-    <section className="text-center py-8 px-4 sm:px-8">
+  
+
+
+  <AuroraBackground>
+      <motion.div
+        initial={{ opacity: 0.5, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 0.3,
+          duration: 0.8,
+          ease: "easeInOut",
+        }}
+       
+      >
+        <section className="text-center py-8 px-4 sm:px-8">
   <div className="text-gray-500 text-xs sm:text-sm tracking-wider uppercase">
     Integrations
   </div>
@@ -11,9 +29,20 @@ function Title() {
     Discover, connect, and configure dev tools and APIs that extend the limits
     of web performance and team productivity.
   </p>
-</section>
+  </section>
+      </motion.div>
+    </AuroraBackground>
+
 
   )
 }
 
 export default Title
+
+
+
+
+
+
+
+

@@ -79,7 +79,7 @@ function Hero() {
 
       {/* Hero Image */}
       <div className={`${style.cards} absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 mb-32 shadow`}>
-        <Image src="/Images/Photo/imgHero.png" alt="hero" className="w-full h-full" width={700} height={300} />
+        <Image src="/Images/Photo/front.jpg" alt="hero" className="w-full h-full" width={700} height={300} />
       </div>
     </section>
   )
