@@ -82,7 +82,7 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className={`sticky top-0 z-50 w-full px-6 py-3 transition-all duration-300 ${scrolled ? "bg-white/80 backdrop-blur-md shadow-md" : "bg-white"}`}>
+    <header className={`sticky top-0 z-50 w-full px-6 py-3 transition-all duration-300 ${scrolled ? "bg-white/80 backdrop-blur-md shadow-md" : "bg-white"}  z-[300] `}>
       <div className="container flex h-16 items-center justify-between">
         {/* Logo and Navigation */}
         <div className="flex items-center">

@@ -9,7 +9,7 @@ import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
 
 
 const SingleCard = ({ card }: { card: Cards }) => {
-  const { id, image, badge, logo, title, description } = card;
+  const { id, image, badge, title, description } = card;
   const router = useRouter();
 
   const handleCardClick = () => {
