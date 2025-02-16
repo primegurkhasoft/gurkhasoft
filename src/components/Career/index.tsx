@@ -5,11 +5,6 @@ import dynamic from 'next/dynamic';
 import React from 'react'
 import  VacenciesData  from  "./careerData";
 
-
-
-
-
-
 const SingleCareer = dynamic(() => import("./singleCareer"), { ssr: false });
 
 function Career() {
@@ -22,7 +17,7 @@ function Career() {
                     <p className="mt-5 text-base font-semibold sm:text-lg md:text-xl   ">
                         Empowering You to Build a Career That Defines Success.
                     </p>
-                    <p className='mt-5 text-base sm:text-lg md:text-xl  ' >Your growth and ambition are at the heart of everything we do, guiding you to reach your highest potential.</p>
+                    <p className="mt-5 text-base sm:text-lg md:text-xl  " >Your growth and ambition are at the heart of everything we do, guiding you to reach your highest potential.</p>
                 </div>
                 <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold   mt-10 ml-20 ">Vacancies</h1>
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:ml-36 xl:gap-10  pt-10 pb-12 px-9">
