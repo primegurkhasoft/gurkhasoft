@@ -20,7 +20,7 @@ function Career() {
                 <div  className='text-center'>        
                     
                     <p className="mt-5 text-base font-semibold sm:text-lg md:text-xl   ">
-                        "Empowering You to Build a Career That Defines Success."
+                        Empowering You to Build a Career That Defines Success.
                     </p>
                     <p className='mt-5 text-base sm:text-lg md:text-xl  ' >Your growth and ambition are at the heart of everything we do, guiding you to reach your highest potential.</p>
                 </div>
