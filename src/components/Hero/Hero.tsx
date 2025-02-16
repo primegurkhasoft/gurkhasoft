@@ -33,10 +33,10 @@ function Hero() {
   }, [])
 
   return (
-    <section>
+    <section >
       <div
         ref={heroRef}
-        className="min-h-max bg-gradient-to-b from-gray-900 to-gray-800 flex flex-col items-center justify-center text-center px-4 pt-12 pb-48 relative overflow-hidden"
+        className="min-h-max bg-gradient-to-b from-gray-900 to-gray-800 flex flex-col items-center justify-center text-center px-4 pt-12 pb-48 relative overflow-hidden  "
       >
         {/* Sparkle effect */}
         <div

@@ -29,13 +29,13 @@ const navItems: NavItems = {
     isDropdown: true,
     sections: {
       DEVELOP: [
-        { title: "Digital Marketing", href: "/services" },
-        { title: "SEO", href: "/services" },
-        { title: "Website Development", href: "/services" },
-        { title: "Software Development", href: "/services" },
-        { title: "QA and Testing", href: "/services" },
-        { title: "E-commerce", href: "/services" },
-        { title: "AI", href: "/services" },
+        { title: "Digital Marketing", href: "/services#digital-marketing" },
+        { title: "SEO", href: "/services#seo" },
+        { title: "Website Development", href: "/services#website-development" },
+        { title: "Software Development", href: "/services#software-development" },
+        { title: "QA and Testing", href: "/services#qa-testing" },
+        { title: "E-commerce", href: "/services#ecommerce" },
+        { title: "AI", href: "/services#ai" },
       ],
       DEPLOY: [
         { title: "Promotion Adds", href: "/services" },
