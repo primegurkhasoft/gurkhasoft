@@ -10,10 +10,9 @@ import cardsData from '../Cards/cardsData';
 function Projects() {
   const [isSidebarFixed, setIsSidebarFixed] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [filteredCards, setFilteredCards] = useState<Cards[]>(cardsData); // State for filtered cards
+  const [filteredCards, setFilteredCards] = useState<Cards[]>(cardsData);
   const titleRef = useRef<HTMLDivElement>(null);
-  const cardRef = useRef<HTMLDivElement>(null); // Add a reference to the card div
-
+  const cardRef = useRef<HTMLDivElement>(null); 
   useEffect(() => {
     const checkIsMobile = () => {
       setIsMobile(window.innerWidth < 768);

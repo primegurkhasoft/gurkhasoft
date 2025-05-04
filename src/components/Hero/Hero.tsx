@@ -1,15 +1,16 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import Image from "next/image"
 import { Button } from "@/utils/button"
 import style from "./hero.module.css"
 
 function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const heroRef = useRef<HTMLDivElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
+    // Mouse position tracking
     const handleMouseMove = (event: MouseEvent) => {
       if (heroRef.current) {
         const rect = heroRef.current.getBoundingClientRect()
@@ -25,6 +26,20 @@ function Hero() {
       heroElement.addEventListener("mousemove", handleMouseMove)
     }
 
+    // Video autoplay with fallback
+    const attemptAutoPlay = () => {
+      if (videoRef.current) {
+        videoRef.current.play()
+          .catch(error => {
+            alert(error.message)
+            videoRef.current!.muted = true
+            videoRef.current!.play()
+          })
+      }
+    }
+
+    attemptAutoPlay()
+
     return () => {
       if (heroElement) {
         heroElement.removeEventListener("mousemove", handleMouseMove)
@@ -33,10 +48,10 @@ function Hero() {
   }, [])
 
   return (
-    <section >
+    <section>
       <div
         ref={heroRef}
-        className="min-h-max bg-gradient-to-b from-gray-900 to-gray-800 flex flex-col items-center justify-center text-center px-4 pt-12 pb-48 relative overflow-hidden  "
+        className="min-h-max bg-gradient-to-b from-gray-900 to-gray-800 flex flex-col items-center justify-center text-center px-4 pt-12 pb-48 relative overflow-hidden"
       >
         {/* Sparkle effect */}
         <div
@@ -67,7 +82,7 @@ function Hero() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="px-8 py-4 bg-cyan-400 hover:bg-cyan-500 text-gray-900 font-semibold rounded-md transition-colors hover:shadow">
+            <Button className="px-8 py-4 bg-cyan-300 hover:bg-cyan-400 text-black font-semibold rounded-md transition-colors hover:shadow">
               Get started
             </Button>
             <Button className="px-8 py-4 text-white hover:bg-gray-700 font-semibold rounded-md transition-colors">
@@ -77,13 +92,22 @@ function Hero() {
         </div>
       </div>
 
-      {/* Hero Image */}
+      {/* Hero Video */}
       <div className={`${style.cards} absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 mb-32 shadow`}>
-        <Image src="/Images/Photo/front.jpg" alt="hero" className="w-full h-full" width={700} height={300} />
+        <video
+          ref={videoRef}
+          src='/Videos/Hero/Poster.mp4'
+          autoPlay
+          muted
+          loop
+          playsInline
+          disablePictureInPicture
+          disableRemotePlayback
+          className="w-full h-full object-cover"
+        />
       </div>
     </section>
   )
 }
 
 export default Hero
-

@@ -6,7 +6,7 @@ function Logo() {
   return (
     <>
       <Link href={"/"}>
-        <Image src="/Images/Logo/first.png" alt="logo" width={130} height={130} />
+        <Image src="/Images/Logo/pgsoft.png" alt="logo" width={130} height={130} />
       </Link>
     </>
   )

@@ -29,9 +29,9 @@ export default function Footer() {
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
                     <div className="col-span-1 lg:col-span-2">
-                        <h2 className="text-2xl font-bold text-gray-900 mb-4">Tech Forge</h2>
+                        <h2 className="text-2xl font-bold text-gray-900 mb-4">PG Soft</h2>
                         <p className="mb-4">
-                            Tech Forge is the modern web development rising company for individuals and enterprises to realize the full potential of a
+                            Prime GurkhaSoft is the modern web development rising company for individuals and enterprises to realize the full potential of a
                             scalable, customizable web architecture.
                         </p>
                         <form className="flex">
@@ -67,7 +67,7 @@ export default function Footer() {
                     ))}
                 </div>
                 <div className="mt-12 pt-8 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center">
-                    <p className="text-sm">&copy; 2025 Tech Forge. All rights reserved.</p>
+                    <p className="text-sm">&copy; 2025 PG Soft. All rights reserved.</p>
                     <div className="flex space-x-4 mt-4 sm:mt-0">
                         {socialLinks.map(({ icon: Icon, href }) => (
                             <Link

@@ -1,8 +1,13 @@
+"use client"
+
 import { ArrowRight, Check } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { useRouter } from "next/navigation";
 
 export default function ContactHome() {
+    const router = useRouter();
+    
     return (
         <div className="mx-auto max-w-7xl px-4 py-12 space-y-24">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
@@ -37,7 +42,7 @@ export default function ContactHome() {
                     <div className="text-sm font-medium text-blue-600">Customer Story</div>
                     <h2 className="text-3xl font-bold tracking-tight">Mammut means quality - in brand and in technology</h2>
                     <p className="text-gray-600">
-                        Mammut came to TechForge because they needed a performant, interoperable Composable Web Platform that could
+                        Mammut came to PG Soft because they needed a performant, interoperable Composable Web Platform that could
                         deliver a best-in-class digital brand experience for their customers. They needed a partner that could keep
                         their site reliable and performant during peak retail season and unexpected traffic spikes.
                     </p>
@@ -50,7 +55,9 @@ export default function ContactHome() {
 
             <div className="text-center space-y-8">
                 <h2 className="text-3xl font-bold md:text-4xl">Ready to take the first step?</h2>
-                <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-3 rounded-full transition-colors">
+                <button 
+                onClick={()=>router.push("/contact")}
+                className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-3 rounded-full transition-colors">
                     Contact Us
                 </button>
             </div>

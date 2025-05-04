@@ -25,8 +25,8 @@ export default function ServicesSection() {
       href: "#",
     },
     {
-      title: "New House Plumbing",
-      image: "/Images/Services/ml.jpg",
+      title: "Mobile Application",
+      image: "/Images/Services/mobileapp.jpg",
       href: "#",
     },
   ]
@@ -43,10 +43,10 @@ export default function ServicesSection() {
             </p>
           </div>
           <div className="flex flex-col gap-2 sm:flex-row">
-            <Link href="#" className="inline-flex items-center text-blue-600 hover:blue-red-700 transition-colors">
+            <Link href="/services" className="inline-flex items-center text-blue-600 hover:blue-red-700 transition-colors">
               View All Services <ArrowUpRight className="ml-2 h-4 w-4" />
             </Link>
-            <Link href="#" className="inline-flex items-center text-blue-600 hover:blue-red-700 transition-colors">
+            <Link href="/contact" className="inline-flex items-center text-blue-600 hover:blue-red-700 transition-colors">
               Call For Booking <ArrowUpRight className="ml-2 h-4 w-4" />
             </Link>
           </div>

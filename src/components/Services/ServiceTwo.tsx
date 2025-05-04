@@ -79,16 +79,20 @@ function ServiceTwo() {
     },
     {
       id: 7,
-      title: "AI",
-      image: "/Images/Services/ml.jpg",
-      content: "Artificial Intelligence (AI) enables machines to perform tasks that would normally require human intelligence, such as learning and decision-making.",
+      title: "Mobile Application Development",
+      image: "/Images/Services/mobileapp.jpg",
+      content: "We build custom mobile applications that deliver seamless user experiences across iOS and Android platforms, helping businesses engage customers anytime, anywhere.",
       bulletPoints: [
-        "Automates repetitive tasks to improve efficiency",
-        "Provides predictive analytics for better decision-making",
-        "Improves customer experiences with personalized services",
-        "Enhances business operations with smart technologies",
+        "Native iOS and Android app development",
+        "Cross-platform solutions with React Native/Flutter",
+        "Enterprise mobile application integration",
+        "App store optimization and deployment",
+        "Ongoing maintenance and support services",
+        "UI/UX design tailored for mobile experiences",
+        "Secure mobile payment integrations",
+        "Offline functionality and data synchronization"
       ],
-    },
+    }
   ];
 
   return (
@@ -99,9 +103,8 @@ function ServiceTwo() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: index * 0.2 }}
-          className={`flex flex-col md:flex-row items-center mb-12 h-96 ${
-            index % 2 === 1 ? "md:flex-row-reverse" : ""
-          } ${index % 2 === 0 ? "bg-gray-100" : "bg-white"} p-4`}
+          className={`flex flex-col md:flex-row items-center mb-12 h-96 ${index % 2 === 1 ? "md:flex-row-reverse" : ""
+            } ${index % 2 === 0 ? "bg-gray-100" : "bg-white"} p-4`}
           id={topic.title.toLowerCase().replace(/\s+/g, "-")}
         >
           {/* Image */}
