@@ -37,8 +37,16 @@ export const AnimatedTestimonials = ({
       const interval = setInterval(handleNext, 5000);
       return () => clearInterval(interval);
     }
-  }, [autoplay]);
+  }, []);
 
+/*************  ✨ Windsurf Command ⭐  *************/
+/**
+ * Generates a random integer between -10 and 10.
+ * This can be used to apply a random Y-axis rotation
+ * to elements for a dynamic visual effect.
+ */
+
+/*******  d39cfaef-ae35-40b5-ac8d-743ff4626eea  *******/
   const randomRotateY = () => {
     return Math.floor(Math.random() * 21) - 10;
   };
